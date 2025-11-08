@@ -11,6 +11,7 @@ import torch
 import trimesh.transformations as tra
 from habitat.core.environments import GymHabitatEnv
 from habitat.core.simulator import Observations
+import habitat.core.env
 
 import home_robot
 import home_robot.core.interfaces
@@ -109,7 +110,8 @@ class HabitatOpenVocabManipEnv(HabitatEnv):
     def set_vis_dir(self):
         scene_id = self.get_current_episode().scene_id.split("/")[-1].split(".")[0]
         episode_id = self.get_current_episode().episode_id
-        self.visualizer.set_vis_dir(scene_id=scene_id, episode_id=episode_id)
+        # NOTE(ku) Disable visualization
+        # self.visualizer.set_vis_dir(scene_id=scene_id, episode_id=episode_id)
 
     def reset(self):
         habitat_obs = self.habitat_env.reset()
@@ -372,8 +374,10 @@ class HabitatOpenVocabManipEnv(HabitatEnv):
         return np.array(cont_action, dtype=np.float32)
 
     def _process_info(self, info: Dict[str, Any]) -> Any:
-        if info and self.visualize:
-            self.visualizer.visualize(**info)
+        pass
+        # NOTE(ku) Disable visualization
+        # if info and self.visualize:
+        #     self.visualizer.visualize(**info)
 
     def apply_action(
         self,

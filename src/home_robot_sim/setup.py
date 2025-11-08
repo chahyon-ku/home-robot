@@ -7,7 +7,7 @@ from setuptools import find_packages, setup
 install_requires = [
     "numpy",
     "home-robot",
-    "habitat-sim",
+    # "habitat-sim",
     # Installing habitat-lab directly from git (does not work due to bug in habitat-lab@v0.2.2):
     # "habitat @ git+ssh://git@github.com/facebookresearch/habitat-lab.git@v0.2.2",
     # Latest habitat version (not used due to Hydra migration):
