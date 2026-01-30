@@ -59,7 +59,7 @@ class ContinuousNavigationAction(Action):
         self.xyt = xyt
 
 
-class ContinuousFullBodyAction:
+class ContinuousFullBodyAction(Action):
     xyt: np.ndarray
     joints: np.ndarray
 
@@ -74,7 +74,7 @@ class ContinuousFullBodyAction:
         self.joints = joints
 
 
-class ContinuousEndEffectorAction:
+class ContinuousEndEffectorAction(Action):
     pos: np.ndarray
     ori: np.ndarray
     g: np.ndarray
